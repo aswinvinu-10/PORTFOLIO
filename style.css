@@ -1,0 +1,341 @@
+/* Black background, teal #2DD4BF accent, white text */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+html, body, .stApp, .stApp *:not([data-testid="stIconMaterial"]) {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+#MainMenu, footer, [data-testid="stDecoration"], [data-testid="stToolbarActions"], .stAppDeployButton {
+    display: none !important;
+}
+
+[data-testid="stHeader"] {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1D2B2C;
+}
+
+.stApp {
+    background: radial-gradient(700px circle at 90% 5%, rgba(45, 212, 191, 0.14), transparent 70%), #000;
+}
+
+.block-container {
+    max-width: 1060px;
+    padding-top: 4.5rem;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .stApp .stat b, .stApp .roles, .stApp .track {
+    font-family: 'Outfit', sans-serif !important;
+    letter-spacing: -0.01em;
+}
+
+/* page titles */
+.stApp .page-head h1 {
+    font-size: clamp(2.2rem, 6vw, 3.4rem) !important;
+    margin: 0;
+    padding: 0;
+}
+
+.page-head p {
+    color: #9FB3B0;
+    margin: 4px 0 28px;
+}
+
+.section {
+    border-left: 4px solid #2DD4BF;
+    padding: 0 0 0 12px !important;
+    margin: 44px 0 18px !important;
+    font-size: 1.5rem !important;
+}
+
+/* hero */
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid #1D2B2C;
+    background: #0B1112;
+    border-radius: 999px;
+    padding: 7px 16px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #2DD4BF;
+    animation: ping 2s infinite;
+}
+
+@keyframes ping {
+    0% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.7); }
+    70% { box-shadow: 0 0 0 9px rgba(45, 212, 191, 0); }
+}
+
+.stApp .hero-name {
+    font-size: clamp(3rem, 8vw, 5.8rem) !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    margin: 22px 0 10px;
+    padding: 0;
+}
+
+.hero-name span {
+    background: linear-gradient(90deg, #2DD4BF, #7CF5E4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.roles {
+    position: relative;
+    height: 2.3rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2DD4BF;
+}
+
+.roles span {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    animation: role 12s infinite;
+}
+
+.roles span:nth-child(2) { animation-delay: 3s; }
+.roles span:nth-child(3) { animation-delay: 6s; }
+.roles span:nth-child(4) { animation-delay: 9s; }
+
+@keyframes role {
+    0% { opacity: 0; transform: translateY(10px); }
+    4%, 22% { opacity: 1; transform: none; }
+    26%, 100% { opacity: 0; }
+}
+
+.lead {
+    color: #9FB3B0;
+    max-width: 32rem;
+    margin: 6px 0 14px;
+}
+
+/* profile photo */
+.dp-wrap {
+    position: relative;
+    width: min(70vw, 330px);
+    aspect-ratio: 1;
+    margin: 12px auto 10px;
+}
+
+.dp-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -9px;
+    border-radius: 50%;
+    background: conic-gradient(#2DD4BF, rgba(45, 212, 191, 0.05) 45%, #2DD4BF);
+    animation: spin 8s linear infinite;
+}
+
+.dp-wrap img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px #000;
+}
+
+.dp-wrap.big {
+    width: min(80vw, 420px);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* stats and ticker */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 44px 0 20px;
+}
+
+.stat {
+    background: #0B1112;
+    border: 1px solid #1D2B2C;
+    border-top: 3px solid #2DD4BF;
+    border-radius: 14px;
+    padding: 16px 18px;
+}
+
+.stat b {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.stat span {
+    color: #9FB3B0;
+    font-size: 0.92rem;
+}
+
+.marq {
+    margin-top: 28px;
+    overflow: hidden;
+    border-block: 1px solid #1D2B2C;
+    padding: 13px 0;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.track {
+    display: flex;
+    gap: 36px;
+    width: max-content;
+    animation: scroll 32s linear infinite;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    color: #9FB3B0;
+}
+
+.track span::after {
+    content: "\2022";
+    margin-left: 36px;
+    color: #2DD4BF;
+}
+
+@keyframes scroll {
+    to { transform: translateX(-50%); }
+}
+
+/* cards */
+.card {
+    background: #0B1112;
+    border: 1px solid #1D2B2C;
+    border-radius: 18px;
+    padding: 22px 24px;
+    margin-bottom: 12px;
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.card:hover {
+    border-color: #2DD4BF;
+    transform: translateY(-3px);
+}
+
+.card.accent {
+    border-left: 6px solid #2DD4BF;
+}
+
+.card h3 {
+    margin: 0 0 2px;
+    font-size: 1.25rem;
+}
+
+.card .meta {
+    color: #9FB3B0;
+    margin: 0 0 10px;
+    font-size: 0.95rem;
+}
+
+.card ul, .card ol {
+    padding-left: 1.2rem;
+}
+
+.card .label {
+    color: #2DD4BF;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 18px 0 6px;
+}
+
+.card a {
+    color: #2DD4BF;
+}
+
+.tag {
+    display: inline-block;
+    border: 1px solid rgba(45, 212, 191, 0.45);
+    color: #2DD4BF;
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0 8px 6px 0;
+}
+
+/* skills */
+h4.group {
+    color: #2DD4BF !important;
+    font-size: 1rem !important;
+    margin: 18px 0 4px !important;
+    padding: 0 !important;
+}
+
+.info {
+    margin: 8px 0 6px;
+    padding: 14px 18px;
+    border-left: 4px solid #2DD4BF;
+    background: #0B1112;
+    border-radius: 0 14px 14px 0;
+    animation: pop 0.3s;
+}
+
+.info p {
+    margin: 4px 0 0;
+    color: #9FB3B0;
+}
+
+.info p.used {
+    color: #2DD4BF;
+}
+
+@keyframes pop {
+    from { opacity: 0; transform: translateY(-6px); }
+}
+
+/* buttons and links */
+.stButton > button, .stDownloadButton > button, .stLinkButton > a {
+    border-radius: 999px;
+    border: 2px solid #2DD4BF;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.stButton > button:hover, .stDownloadButton > button:hover, .stLinkButton > a:hover {
+    background: #2DD4BF;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+[data-testid="stPageLink"] a {
+    min-height: 2.6rem;
+    border: 2px solid #1D2B2C;
+    border-radius: 999px;
+    font-weight: 600;
+    justify-content: center;
+}
+
+[data-testid="stPageLink"] a:hover {
+    border-color: #2DD4BF;
+}
+
+.footer {
+    color: #9FB3B0;
+    font-size: 0.9rem;
+    margin-top: 48px;
+    border-top: 1px solid #1D2B2C;
+    padding-top: 16px;
+}
+
+@media (max-width: 780px) {
+    .stats { grid-template-columns: 1fr 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; }
+    .roles span:first-child { opacity: 1; }
+}
